@@ -1,3 +1,15 @@
-body {
-  background-color: red;
+html {
+  background: url(../images/main2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin no-bg-color {
+  background-color: transparent;
+}
+body,
+.custom-bg {
+  @include no-bg-color;
 }
