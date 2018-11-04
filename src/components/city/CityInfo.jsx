@@ -26,12 +26,12 @@ const CityInfo = props => {
     <div>
       <Jumbotron className="custom-bg">
         <Row>
-          <Col xs="4">
-            <div style={{ display: "flex" }}>
+          <Col sm="12" md="4" lg="4">
+            <div className="custom-info">
               {getSvgFromWeather(props.city.weather[0].main)}
               <h1>{`${convertToCelsius(props.city.main.temp)}${CELSIUS}`} </h1>
             </div>
-            <p className="lead">
+            <p className="lead custom-description">
               {`${HUMIDITY}: ${props.city.main.humidity}${PERCENTAGE}`}
               <br />
               {`${PRESSURE}: ${props.city.main.pressure} ${H_PASC}`}
@@ -46,7 +46,7 @@ const CityInfo = props => {
               <br />
             </p>
           </Col>
-          <Col xs="8">
+          <Col sm="12" md="8" lg="8">
             <GoogleMap lat={props.city.coord.lat} lng={props.city.coord.lon} />
           </Col>
         </Row>

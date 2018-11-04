@@ -58,30 +58,32 @@ class CardList extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <h4 className="custom-title">{LAST_SEARCHES}</h4>
-        <Card>
-          {this.state.cities.map(city => {
-            return (
-              <div key={city.name} className="last-searchs-item">
-                <Button
-                  close
-                  onClick={() => this.handleDeleteCity(city.name)}
-                  className="delete-btn"
-                />
-                <Button
-                  onClick={() => this.handleCitySelectedChange(city)}
-                  color="link"
-                >
-                  {city.name}
-                </Button>
-              </div>
-            );
-          })}
-        </Card>
-      </div>
-    );
+    const renderElement =
+      this.state.cities.length === 0 ? null : (
+        <div className="custom-card">
+          <h4 className="centered">{LAST_SEARCHES}</h4>
+          <Card>
+            {this.state.cities.map(city => {
+              return (
+                <div key={city.name} className="last-searchs-item">
+                  <Button
+                    close
+                    onClick={() => this.handleDeleteCity(city.name)}
+                    className="delete-btn"
+                  />
+                  <Button
+                    onClick={() => this.handleCitySelectedChange(city)}
+                    color="link"
+                  >
+                    {city.name}
+                  </Button>
+                </div>
+              );
+            })}
+          </Card>
+        </div>
+      );
+    return renderElement;
   }
 }
 

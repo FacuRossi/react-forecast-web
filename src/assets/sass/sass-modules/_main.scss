@@ -18,13 +18,32 @@ body,
   width: 50%;
 }
 
+.centered {
+  text-align: center;
+}
+
 .custom-title {
   text-align: center;
   text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
     0px -5px 35px rgba(255, 255, 255, 0.3);
+  @media screen and (max-width: $break-mobileL) {
+    font-size: 40px;
+  }
+  @media screen and (max-width: $break-mobileS) {
+    font-size: 35px;
+  }
 }
 .custom-search-bar {
   padding: 0px 400px;
+  @media screen and (max-width: $break-laptop) {
+    padding: 0px 150px;
+  }
+  @media screen and (max-width: $break-tablet) {
+    padding: 0px 50px;
+  }
+  @media screen and (max-width: $break-mobileL) {
+    padding: 0px 0px;
+  }
 }
 
 .delete-btn {
@@ -42,4 +61,33 @@ body,
 .custom-map {
   height: 50vh;
   width: 75%;
+  @media screen and (max-width: $break-laptop) {
+    width: 100%;
+  }
+}
+
+.custom-alert {
+  margin: 0px;
+  text-align: center;
+}
+
+.custom-info {
+  display: flex;
+  @media screen and (max-width: $break-laptop) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.custom-card {
+  @media screen and (max-width: $break-tablet) {
+    margin: 0px 50px;
+  }
+  @media screen and (max-width: $break-mobileL) {
+    margin: 0px 0px;
+  }
+}
+
+.custom-description {
+  text-align: center;
 }

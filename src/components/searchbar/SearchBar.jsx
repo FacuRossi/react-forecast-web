@@ -1,7 +1,19 @@
 import React, { Component } from "react";
-import { Col, Row, Form, FormGroup, Input } from "reactstrap";
+import {
+  Col,
+  Row,
+  Form,
+  FormGroup,
+  Input,
+  InputGroupAddon,
+  InputGroup,
+  Button
+} from "reactstrap";
 import PropTypes from "prop-types";
-import { SEARCH_BAR_PLACEHOLDER } from "../../constants/Constants";
+import {
+  SEARCH_BAR_PLACEHOLDER,
+  SEARCH_BUTTON
+} from "../../constants/Constants";
 
 const propTypes = {
   onSubmit: PropTypes.func.isRequired
@@ -36,12 +48,19 @@ class SearchBar extends Component {
         <Col>
           <Form onSubmit={this.handleSubmit}>
             <FormGroup>
-              <Input
-                type="text"
-                value={this.state.cityName}
-                placeholder={SEARCH_BAR_PLACEHOLDER}
-                onChange={this.handleChange}
-              />
+              <InputGroup>
+                <Input
+                  type="text"
+                  value={this.state.cityName}
+                  placeholder={SEARCH_BAR_PLACEHOLDER}
+                  onChange={this.handleChange}
+                />
+                <InputGroupAddon addonType="append">
+                  <Button onClick={this.handleSubmit} color="info">
+                    {SEARCH_BUTTON}
+                  </Button>
+                </InputGroupAddon>
+              </InputGroup>
             </FormGroup>
           </Form>
         </Col>

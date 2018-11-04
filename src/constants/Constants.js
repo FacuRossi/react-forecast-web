@@ -1,5 +1,6 @@
 export const MAIN_TITLE = "Forecast Web App";
 export const SEARCH_BAR_PLACEHOLDER = "City Name...";
+export const SEARCH_BUTTON = "Search";
 export const LS_KEY_CITIES = "cities";
 export const LAST_SEARCHES = "Last Searches";
 export const CELSIUS = "°C";
@@ -9,3 +10,4 @@ export const PRESSURE = "Pressure";
 export const HUMIDITY = "Humidity";
 export const MIN_TEMP = "Min Temp";
 export const MAX_TEMP = "Max Temp";
+export const ERROR_CITY_NOT_FOUND = "Ops.. City not found, try again.";
