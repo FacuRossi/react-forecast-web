@@ -1,0 +1,11 @@
+export const MAIN_TITLE = "Forecast Web App";
+export const SEARCH_BAR_PLACEHOLDER = "City Name...";
+export const LS_KEY_CITIES = "cities";
+export const LAST_SEARCHES = "Last Searches";
+export const CELSIUS = "°C";
+export const PERCENTAGE = "%";
+export const H_PASC = "Hpa";
+export const PRESSURE = "Pressure";
+export const HUMIDITY = "Humidity";
+export const MIN_TEMP = "Min Temp";
+export const MAX_TEMP = "Max Temp";

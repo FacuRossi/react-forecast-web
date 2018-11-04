@@ -1,19 +1,6 @@
 import axios from "axios";
 import { API_URL, API_KEY } from "../config/settings";
 
-// /**
-//  * Create HTTP header
-//  *
-//  * @return {{headers: {'Content-type': string, 'Access-Control-Allow-Origin': '*'}}}
-//  */
-// function getHeaderConfig() {
-//   return {
-//     headers: {
-//       "Access-Control-Allow-Origin": "*",
-//       "Content-Type": "application/json"
-//     }
-//   };
-// }
 /**
  * Call Forecast API and get a city by name.
  *

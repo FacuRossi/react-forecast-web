@@ -25,3 +25,7 @@ body,
 
 .last-searchs-item:hover .delete-btn {
   display: block; }
+
+.custom-map {
+  height: 50vh;
+  width: 75%; }

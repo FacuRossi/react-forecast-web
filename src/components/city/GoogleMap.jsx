@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import PropTypes from "prop-types";
+import {
+  GOOGLE_MAP_API_KEY,
+  GOOGLE_MAP_DEFAULT_ZOOM
+} from "../../config/settings";
 
 const propTypes = {
   lat: PropTypes.number.isRequired,
@@ -21,14 +25,13 @@ class GoogleMap extends Component {
       });
     }
   }
-  //AIzaSyBihOZg8fKdhszGNPGdFFZrj7avdjTEYTg
   render() {
     return (
-      <div style={{ height: "50vh", width: "75%" }}>
+      <div className="custom-map">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyD6kixofLg4seM7aWKn9C7Il6_HCaCZxi0 " }}
+          bootstrapURLKeys={{ key: GOOGLE_MAP_API_KEY }}
           center={this.state.center}
-          zoom={11}
+          zoom={GOOGLE_MAP_DEFAULT_ZOOM}
         />
       </div>
     );

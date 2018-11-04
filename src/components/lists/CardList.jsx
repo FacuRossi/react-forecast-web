@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Card, CardText, CardBody, CardTitle, Button } from "reactstrap";
+import { Card, Button } from "reactstrap";
+import { LS_KEY_CITIES, LAST_SEARCHES } from "../../constants/Constants";
 import {
   addItemInArray,
   getItem,
@@ -19,24 +20,23 @@ class CardList extends Component {
     this.state = { cities: [] };
   }
 
-  deleteCity = name => {
+  handleDeleteCity = name => {
     this.setState({
       cities: this.state.cities.filter(city => city.name !== name)
     });
-    deleteItemInArray("cities", name);
+    deleteItemInArray(LS_KEY_CITIES, name);
   };
 
-  isCity = name => {
-    const names = this.state.cities.map(city => city.name);
-    return names.includes(name);
+  wasCitySearched = name => {
+    return this.state.cities.map(city => city.name).includes(name);
   };
 
-  onCitySelectedChange = city => {
+  handleCitySelectedChange = city => {
     this.props.changeSelectedCity(city);
   };
 
   componentDidMount() {
-    const savedCities = getItem("cities");
+    const savedCities = getItem(LS_KEY_CITIES);
     if (savedCities) {
       this.setState({ cities: savedCities });
     }
@@ -44,34 +44,34 @@ class CardList extends Component {
 
   componentDidUpdate(prevProps) {
     if (
-      !this.isCity(this.props.city.name) &&
+      !this.wasCitySearched(this.props.city.name) &&
       this.props.city.name !== prevProps.city.name
     ) {
       let copy = [...this.state.cities];
-      let cities =
+      const cities =
         copy.length >= MAX_CITIES_ALLOWED
           ? copy.slice(1).concat(this.props.city)
           : copy.concat(this.props.city);
       this.setState({ cities });
-      addItemInArray("cities", this.props.city);
+      addItemInArray(LS_KEY_CITIES, this.props.city);
     }
   }
 
   render() {
     return (
       <div>
-        <h4 className="custom-title">Last Searches</h4>
+        <h4 className="custom-title">{LAST_SEARCHES}</h4>
         <Card>
           {this.state.cities.map(city => {
             return (
               <div key={city.name} className="last-searchs-item">
                 <Button
                   close
-                  onClick={() => this.deleteCity(city.name)}
+                  onClick={() => this.handleDeleteCity(city.name)}
                   className="delete-btn"
                 />
                 <Button
-                  onClick={() => this.onCitySelectedChange(city)}
+                  onClick={() => this.handleCitySelectedChange(city)}
                   color="link"
                 >
                   {city.name}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Container, Col, Row, Form, FormGroup, Input } from "reactstrap";
+import { Col, Row, Form, FormGroup, Input } from "reactstrap";
 import PropTypes from "prop-types";
+import { SEARCH_BAR_PLACEHOLDER } from "../../constants/Constants";
 
 const propTypes = {
   onSubmit: PropTypes.func.isRequired
@@ -19,14 +20,14 @@ class SearchBar extends Component {
     this.setState({ cityName: event.target.value });
   };
 
-  clearInput = () => {
-    this.setState({ cityName: "" });
-  };
-
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSubmit(this.state.cityName);
     this.clearInput();
+  };
+
+  clearInput = () => {
+    this.setState({ cityName: "" });
   };
 
   render() {
@@ -38,7 +39,7 @@ class SearchBar extends Component {
               <Input
                 type="text"
                 value={this.state.cityName}
-                placeholder="City Name..."
+                placeholder={SEARCH_BAR_PLACEHOLDER}
                 onChange={this.handleChange}
               />
             </FormGroup>

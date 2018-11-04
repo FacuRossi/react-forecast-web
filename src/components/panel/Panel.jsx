@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { Container, Col, Row } from "reactstrap";
 import SearchBar from "../searchbar/SearchBar";
 import CityInfo from "../city/CityInfo";
 import CardList from "../lists/CardList";
 import { getForecastByCityName } from "../../services/ForecastService";
-
-const propTypes = {};
 
 class Panel extends Component {
   constructor(props) {
@@ -23,6 +20,7 @@ class Panel extends Component {
         this.setState({ citySeleted: response.data, isCitySelected: true });
       })
       .catch(error => {
+        //add popup
         console.log(error.message);
       });
   };
@@ -54,7 +52,5 @@ class Panel extends Component {
     );
   }
 }
-
-Panel.propTypes = propTypes;
 
 export default Panel;
