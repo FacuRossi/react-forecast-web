@@ -31,22 +31,20 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <Container>
-        <Row className="show-grid">
-          <Col>
-            <Form onSubmit={this.handleSubmit}>
-              <FormGroup>
-                <Input
-                  type="text"
-                  value={this.state.cityName}
-                  placeholder="City Name..."
-                  onChange={this.handleChange}
-                />
-              </FormGroup>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
+      <Row className="custom-search-bar">
+        <Col>
+          <Form onSubmit={this.handleSubmit}>
+            <FormGroup>
+              <Input
+                type="text"
+                value={this.state.cityName}
+                placeholder="City Name..."
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+          </Form>
+        </Col>
+      </Row>
     );
   }
 }

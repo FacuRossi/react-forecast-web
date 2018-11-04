@@ -1,23 +1,16 @@
 import React from "react";
-import { Container, Col, Row, Navbar, NavbarBrand } from "reactstrap";
-import PropTypes from "prop-types";
-
-const propTypes = {};
+import { Container, Col, Row } from "reactstrap";
 
 const Header = () => {
   return (
     <Container>
       <Row>
         <Col>
-          <Navbar light expand="md">
-            <NavbarBrand href="/">ForeCast</NavbarBrand>
-          </Navbar>
+          <h1 className="display-3 custom-title">Forecast Web App</h1>
         </Col>
       </Row>
     </Container>
   );
 };
-
-Header.propTypes = propTypes;
 
 export default Header;

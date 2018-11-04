@@ -27,17 +27,20 @@ class Panel extends Component {
       });
   };
 
+  onCitySelectedChange = citySeleted => {
+    this.setState({ citySeleted, isCitySelected: true });
+  };
+
   render() {
     return (
       <Container fluid={true}>
-        <Row>
-          <SearchBar onSubmit={this.onFetchCity} />
-        </Row>
+        <SearchBar onSubmit={this.onFetchCity} />
         <Row>
           <Col xs="2">
             {
               <CardList
                 city={this.state.isCitySelected ? this.state.citySeleted : {}}
+                changeSelectedCity={this.onCitySelectedChange}
               />
             }
           </Col>

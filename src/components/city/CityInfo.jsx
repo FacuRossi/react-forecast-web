@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Jumbotron, Row, Col } from "reactstrap";
+import { getSvgFromWeather } from "../../utils/SvgUtils";
 import GoogleMap from "./GoogleMap";
 
 const propTypes = {
@@ -8,27 +9,42 @@ const propTypes = {
 };
 
 class CityInfo extends Component {
+  convertToCelsius = kelvin => {
+    return (kelvin - 273.15).toFixed(2);
+  };
+
   render() {
     return (
       <div>
         <Jumbotron className="custom-bg">
           <Row>
             <Col xs="4">
-              <h1 className="display-3">{this.props.city.main.temp}</h1>
-              <p className="lead">{`The min temp is ${
-                this.props.city.main.temp_min
-              } and the max for today is ${this.props.city.main.temp_max}`}</p>
-              <hr className="my-2" />
-              <p>
-                {this.props.city.main.pressure} And{" "}
-                {this.props.city.main.humidity}
+              <div style={{ display: "flex" }}>
+                {getSvgFromWeather(this.props.city.weather[0].main)}
+                <h1>
+                  {`${this.convertToCelsius(this.props.city.main.temp)}°C`}{" "}
+                </h1>
+              </div>
+              <p className="lead">
+                {`Humidity: ${this.props.city.main.humidity}%`}
+                <br />
+                {`Pressure: ${this.props.city.main.pressure} hPa`}
+                <br />
+                {`Max Temp: ${this.convertToCelsius(
+                  this.props.city.main.temp_max
+                )} °C`}
+                <br />
+                {`Min Temp: ${this.convertToCelsius(
+                  this.props.city.main.temp_min
+                )} °C`}
+                <br />
               </p>
             </Col>
             <Col xs="8">
-              {/* <GoogleMap
+              <GoogleMap
                 lat={this.props.city.coord.lat}
                 lng={this.props.city.coord.lon}
-              /> */}
+              />
             </Col>
           </Row>
         </Jumbotron>

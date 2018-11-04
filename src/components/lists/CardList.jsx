@@ -9,14 +9,14 @@ import {
 import { MAX_CITIES_ALLOWED } from "../../config/settings";
 
 const propTypes = {
-  city: PropTypes.object
+  city: PropTypes.object,
+  changeSelectedCity: PropTypes.func
 };
 
 class CardList extends Component {
   constructor(props) {
     super(props);
-    const { city } = props;
-    this.state = { cities: Object.keys(city).length !== 0 ? [city] : [] };
+    this.state = { cities: [] };
   }
 
   deleteCity = name => {
@@ -24,6 +24,15 @@ class CardList extends Component {
       cities: this.state.cities.filter(city => city.name !== name)
     });
     deleteItemInArray("cities", name);
+  };
+
+  isCity = name => {
+    const names = this.state.cities.map(city => city.name);
+    return names.includes(name);
+  };
+
+  onCitySelectedChange = city => {
+    this.props.changeSelectedCity(city);
   };
 
   componentDidMount() {
@@ -34,7 +43,10 @@ class CardList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.city !== prevProps.city) {
+    if (
+      !this.isCity(this.props.city.name) &&
+      this.props.city.name !== prevProps.city.name
+    ) {
       let copy = [...this.state.cities];
       let cities =
         copy.length >= MAX_CITIES_ALLOWED
@@ -48,18 +60,26 @@ class CardList extends Component {
   render() {
     return (
       <div>
-        {this.state.cities.map(city => {
-          return (
-            <Card key={city.name} className="custom-bg">
-              <CardBody>
-                <CardTitle>
-                  <Button close onClick={() => this.deleteCity(city.name)} />
-                </CardTitle>
-                <CardText>{city.name}</CardText>
-              </CardBody>
-            </Card>
-          );
-        })}
+        <h4 className="custom-title">Last Searches</h4>
+        <Card>
+          {this.state.cities.map(city => {
+            return (
+              <div key={city.name} className="last-searchs-item">
+                <Button
+                  close
+                  onClick={() => this.deleteCity(city.name)}
+                  className="delete-btn"
+                />
+                <Button
+                  onClick={() => this.onCitySelectedChange(city)}
+                  color="link"
+                >
+                  {city.name}
+                </Button>
+              </div>
+            );
+          })}
+        </Card>
       </div>
     );
   }

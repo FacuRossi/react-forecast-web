@@ -1,5 +1,5 @@
 html {
-  background: url(../images/main2.jpg) no-repeat center center fixed;
+  background: url(../images/main.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -8,3 +8,20 @@ html {
 body,
 .custom-bg {
   background-color: transparent; }
+
+.custom-svg {
+  width: 50%; }
+
+.custom-title {
+  text-align: center;
+  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(255, 255, 255, 0.3); }
+
+.custom-search-bar {
+  padding: 0px 400px; }
+
+.delete-btn {
+  display: none;
+  margin-right: 5px; }
+
+.last-searchs-item:hover .delete-btn {
+  display: block; }
