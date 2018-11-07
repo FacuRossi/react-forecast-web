@@ -5,7 +5,7 @@ html {
   -o-background-size: cover;
   background-size: cover;
   @media screen and (max-width: $break-mobileL) {
-    background: url(../images/main-mobile.jpg) no-repeat center center fixed;
+    background: url(../images/main-mobile.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

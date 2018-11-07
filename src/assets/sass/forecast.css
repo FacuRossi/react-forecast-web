@@ -6,7 +6,7 @@ html {
   background-size: cover; }
   @media screen and (max-width: 426px) {
     html {
-      background: url(../images/main-mobile.jpg) no-repeat center center fixed;
+      background: url(../images/main-mobile.jpg);
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
