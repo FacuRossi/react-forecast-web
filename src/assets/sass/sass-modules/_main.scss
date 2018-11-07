@@ -56,6 +56,9 @@ body,
 .delete-btn {
   display: none;
   margin-right: 5px;
+  @media screen and (max-width: $break-mobileL) {
+    display: block;
+  }
 }
 
 .last-searchs-item {

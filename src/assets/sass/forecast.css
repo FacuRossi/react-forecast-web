@@ -47,6 +47,9 @@ body,
 .delete-btn {
   display: none;
   margin-right: 5px; }
+  @media screen and (max-width: 426px) {
+    .delete-btn {
+      display: block; } }
 
 .last-searchs-item:hover .delete-btn {
   display: block; }
