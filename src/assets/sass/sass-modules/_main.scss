@@ -1,9 +1,16 @@
 html {
-  background: url(../images/main.jpg) no-repeat center center fixed;
+  background: url(../images/main-min.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  @media screen and (max-width: $break-mobileL) {
+    background: url(../images/main-mobile.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 }
 
 @mixin no-bg-color {
